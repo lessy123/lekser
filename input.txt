@@ -1,0 +1,4 @@
+import Lexema
+import Litera
+import FSMmodel as fms
+This file presents the text for the state machine
