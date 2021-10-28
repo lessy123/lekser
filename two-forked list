@@ -1,0 +1,236 @@
+class Node:
+    def __init__(self, data=None):
+      self.data = data      #данные, хранящиеся в ячейке списка
+      self.next = None      #ссылка на следующую ячейку
+      self.prev = None      #ссылка на предыдущую ячейку
+
+class doubly_linked_list:
+
+    def __init__(self):
+      self.leght=0              #количество звеньев в списке
+      self.begin = None         #ссылка на начало списка
+      self.end = None           #ссылка на конец списка
+      self.cursor = None      #расположение "курсива"
+
+      
+    #функция добавить в начало
+    def left_append(self,value):
+      self.cursor=self.begin    #переходим к началу списка. Даже у списка с 1 звеньем будет начало. 
+      NewNode = Node(value)     #создает новое звено списка
+      NewNode.next = self.cursor  #привязывает к новому звену ссылку на список(если список еще пуст, то и ссылаться ни к чему не будет)
+      if self.cursor is not None:    #если список не пуст
+         self.cursor.prev = NewNode       #то последнее звено также привязываем к новому списку
+      self.cursor = NewNode       #сохраняем новый список
+      self.begin = self.cursor      #перезаписываем новое расположение начала
+      if self.leght==0:             #если в спискок был пустым
+          self.end = self.cursor    #то заодно приписываем и ссылку на конец списка
+      self.leght+=1             #поднимаем счетчик звеньев на 1
+
+    #функция добавить в конец
+    def Rigth_append(self,value):   #функция работает аналогично, но с концом списка 
+      self.cursor=self.end       #переходим к концу списка.
+      NewNode = Node(value)
+      NewNode.prev = self.cursor
+      if self.cursor is not None:
+         self.cursor.next = NewNode
+      self.cursor = NewNode
+      self.end = self.cursor
+      if self.leght==0:
+          self.begin = self.cursor
+      self.leght+=1
+
+    
+
+
+    #функция удалить конец
+    def Rigth_delet(self):
+        if self.cursor== None:        #проверяет, не пуст ли список
+            print("Список пуст")      #если да, сообщает об этом
+            return                    #и выходит из функции
+        self.cursor=self.end                #переходит к крайнему справа элементу
+        #while self.cursor.next!=None: self.cursor=self.cursor.next    
+        self.cursor.data = None       #и стирает данные звена, ссылки на него и к нему
+        time_Node=self.cursor.prev
+        self.cursor.prev = None
+        self.cursor = time_Node
+        self.cursor.next = None
+        self.end = self.cursor      #меняем ссылку конеца списка
+        self.Clear()                #уменьшаем счетчик звеньев на 1
+
+    #функция удалить начало
+    def Left_delet(self):   #работает аналогично Rigth_delet, но работает в Начале
+        if self.cursor== None:
+            print("Список пуст")
+            return
+        self.cursor=self.begin          #переходит к началу списка
+        #while self.cursor.prev!=None: self.cursor=self.cursor.prev
+        self.cursor.data = None
+        time_Node=self.cursor.next
+        self.cursor.next = None
+        self.cursor = time_Node
+        self.cursor.prev = None
+        self.begin = self.cursor     #меняем ссылку начала списка
+        self.Clear()                #уменьшаем счетчик звеньев на 1
+
+
+
+    #функция вытащить данные из конца списка
+    def Rigth_pop(self):    #работает аналогично Rigth_delet, но после удаления звена возвращает данные его
+        if self.cursor== None:
+            print("Список пуст")
+            return
+        self.cursor=self.end               #переход к концу списка
+        #while self.cursor.next!=None: self.cursor=self.cursor.next    #переход к концу списка
+        retur=self.cursor.data        #временное сохранение данных
+        self.cursor.data = None       #удаление данных о звене
+        time_Node=self.cursor.prev
+        self.cursor.prev = None
+        self.cursor = time_Node
+        self.cursor.next = None
+        self.end = self.cursor
+        self.Clear()
+        return retur                #возврат данных удаленного звена
+
+
+    def Left_pop(self):     #работает также как и Rigth_pop, но в в начале
+        if self.cursor== None:
+            print("Список пуст")
+            return
+        self.cursor=self.begin          #переходит к началу списка
+#        while self.cursor.prev!=None: self.cursor=self.cursor.prev #переход к началу списка
+        retur=self.cursor.data        #временное сохранение данных
+        self.cursor.data = None       #удаление данных о звене
+        time_Node=self.cursor.next
+        self.cursor.next = None
+        self.cursor = time_Node
+        self.cursor.prev = None
+        self.begin = self.cursor
+        self.Clear()
+        return retur                #возврат данных удаленного звена
+
+    #Функция нахождения данных в списке
+    def Find(self,value):
+        if self.cursor== None:
+            print("Список пуст")
+            return
+        self.cursor=self.begin
+        K_xod=0
+        while self.cursor.data!=value and self.cursor.next!= None:
+            self.cursor = self.cursor.next
+            K_xod+=1
+        if self.cursor.data==value:
+            print("Запись найдена")
+            self.Listprint_Find(K_xod)
+        else:
+            print("Данная запись не была обнаружена")
+
+
+    #функция отображения найденных данных в списке (фактически отображает n-ный элемент списка)
+    def Listprint_Find(self,find):
+        printval=self.begin
+        prt=""
+        indicator=0
+        while (printval):
+            if indicator==find:   prt+="местоположение найденной ячейки -> (* " + str(printval.data) + " *) "
+            else:                 prt+="(* " + str(printval.data) + " *) "
+            if printval.next!=None: prt+="; "
+            printval = printval.next
+            indicator+=1
+        if prt=="": prt="Список пуст"
+        print(prt)
+
+
+    #отображает список 
+    def Listprint(self):
+        printval = self.begin       #переход к началу списка
+        prt=""
+        while (printval):
+            prt+="(* " + str(printval.data) + " *) "
+            if printval.next!=None: prt+="; "
+            printval = printval.next
+        if prt=="": prt="Список пуст"
+        print(prt)
+    
+    #уменьшает счетчик звеньев. Если звеньев не осталось стираем все ссылки
+    def Clear(self):
+        self.leght-=1
+        if self.leght==0:
+            self.cursor=None
+            self.begin=None
+            self.end=None
+
+
+
+
+if __name__ == '__main__':
+
+    print("Создается двухсторонний список")
+    dllist = doubly_linked_list()
+
+    print("dllist.left_append(10)")
+    dllist.left_append(10)
+    dllist.Listprint()
+
+    print("dllist.left_append(9)")
+    dllist.left_append(9)
+    dllist.Listprint()
+
+    print("dllist.left_append(8)")
+    dllist.left_append(8)
+    dllist.Listprint()
+
+    print("dllist.Rigth_append(11)")
+    dllist.Rigth_append(11)
+    dllist.Listprint()
+
+    print("dllist.Rigth_append(12)")
+    dllist.Rigth_append(12)
+    dllist.Listprint()
+
+    print("dllist.Rigth_pop()")
+    print(dllist.Rigth_pop())
+    dllist.Listprint()
+
+    print("dllist.Left_pop()")
+    print(dllist.Left_pop())
+    dllist.Listprint()
+
+    print("dllist.Left_delet()")
+    dllist.Left_delet()
+    dllist.Listprint()
+
+    print("dllist.Find(12)")
+    dllist.Find(12)
+
+    print("dllist.Find(11)")
+    dllist.Find(11)
+
+
+'''
+Output:
+Создается двухсторонний список
+dllist.left_append(10)
+(* 10 *)
+dllist.left_append(9)
+(* 9 *) ; (* 10 *)
+dllist.left_append(8)
+(* 8 *) ; (* 9 *) ; (* 10 *)
+dllist.Rigth_append(11)
+(* 8 *) ; (* 9 *) ; (* 10 *) ; (* 11 *)
+dllist.Rigth_append(12)
+(* 8 *) ; (* 9 *) ; (* 10 *) ; (* 11 *) ; (* 12 *)
+dllist.Rigth_pop()
+12
+(* 8 *) ; (* 9 *) ; (* 10 *) ; (* 11 *)
+dllist.Left_pop()
+8
+(* 9 *) ; (* 10 *) ; (* 11 *)
+dllist.Left_delet()
+(* 10 *) ; (* 11 *)
+dllist.Find(12)
+Данная запись не была обнаружена
+dllist.Find(11)
+Запись найдена
+(* 10 *) ; местоположение найденной ячейки -> (* 11 *)
+Press any key to continue . . .
+'''
