@@ -1,0 +1,302 @@
+class Node:
+    def __init__(self, data=None):
+      self.data = str(data)      #данные, хранящиеся в ячейке списка
+      self.grandson = 0        #количество "внуков" - количество звеньев, принадлежащих потомкам
+      self.parents = None       #ссылка на родителя
+      self.child_left = None    #ссылка на потомка слева
+      self.child_rigth = None    #ссылка на потомка слева
+
+class Tree_list:
+
+    def __init__(self):
+      self.leght=0              #количество звеньев в списке
+      self.head = None         #голова
+      self.cursor = None      #расположение "курсива"
+
+    def avto_add(self,value):       #начиная с корня, ищет место для добавления звена в дерево
+        cursor=self.head
+        NewNode = Node(value)
+        if cursor:
+            cursor,left=self.find_free_place(cursor)        #функция нахождения подходящего места для звена
+            NewNode.parents= cursor
+            if left:
+                cursor.child_left=NewNode
+            else:
+                cursor.child_rigth=NewNode       
+        
+        else:                               #иначе генерируется новая цепь
+            self.cursor=NewNode
+            self.head=NewNode
+        self.leght+=1 #автоматическое нахождение места для нового звена 
+    def avto_add_cursor(self,value):    #начиная с курсора, ищет место для добавления звена в дерево
+        cursor=self.sursor
+        NewNode = Node(value)
+        if cursor:                                       #если в цепи есть хоть 1 значение
+            cursor,left=self.find_free_place(cursor)     #функция нахождения подходящего места для звена
+            NewNode.parents= cursor
+            if left:
+                cursor.child_left=NewNode
+            else:
+                cursor.child_rigth=NewNode       
+        
+        else:                                   #иначе генерируется новая цепь
+            self.cursor=NewNode
+            self.head=NewNode
+        self.leght+=1  #автоматическое нахождение места для нового звена в выбранной ветке
+
+    def add_cursor(self,value):       
+        cursor=self.cursor
+        NewNode = Node(value)
+        if cursor is None:                  #генерируется новая цепь если в цепи нет звеньев
+            self.cursor=NewNode
+            self.head=NewNode
+        elif cursor.child_left is None:     #если есть место слева, то новый элемент займет его
+            NewNode.parents= cursor
+            cursor.child_left=NewNode
+            self.cursor=NewNode
+        elif cursor.child_rigth is None:    #если есть место справа, то новый элемент займет его
+            NewNode.parents= cursor
+            cursor.child_rigth=NewNode
+            self.cursor=NewNode
+        else:                               #если в текущем месте нет мест, то будет выдано об этом сообщение
+            print("Звено заполнено, выберите другое")
+            return
+        self.leght+=1  #вставляет нового потомка в текущем звене
+ 
+    def find_free_place(self,cursor):       #функция нахождения подходящего места для звена
+        link=None
+        if cursor.child_left:           #если слеви и справа нет места для потомка
+            if cursor.child_rigth:
+                cursor.grandson+=1     #увеличиваем количество внуков
+                if cursor.child_rigth.grandson>cursor.child_left.grandson:     #у тех потомков, что имеют меньше внуков и 
+                    return self.find_free_place(cursor.child_left)              #и будут записаны новое звено
+                else:
+                    return self.find_free_place(cursor.child_rigth)
+            else:   return cursor,0             #цикл закончится, когда будет найдено свободное место                 
+        else:   return cursor,1# для потомка #ищет свободное место в ветке
+
+
+    def tree_presentation(self,cursor=None,level=0,text=""):
+        if cursor:                                                      #функция рекурсивно вызывает своих потомков
+            for i in range(level):text="-"+text                         # давая каждому потомку уровень, который визуально будет 
+            text+=str(cursor.data)                                      # показывать иерархию дерева
+            if cursor==self.cursor:
+                text+=" <- cursor"
+            print(text)
+            self.tree_presentation(cursor.child_left,level+1,"l - ")    #l - левый потомок
+            self.tree_presentation(cursor.child_rigth,level+1,"r - ")   #r - правый потомок потомок
+            #демонстрирует дерево и его уровни
+
+    def find(self,value):
+        if self.find_cycle(value,self.head):
+                print("Запись найдена")
+        else:   print("Запись не была найдена")     #ищет запись в дереве
+
+
+    def find_cycle(self,value,cursor=None,level=0,text="",bool_find=False):
+        if cursor:                                                      #функция рекурсивно вызывает своих потомков
+            for i in range(level):text="-"+text                         # давая каждому потомку уровень, который визуально будет 
+            text+=str(cursor.data)                                    # показывать иерархию дерева
+            if cursor.data==value:          #если найдены искомые данные 
+                text+=" <- find"            #то данные будут отмечены как найденные
+                self.cursor=cursor          #а также поменяет курсир на данный элемент
+                bool_find=True
+            print(text)
+            bool_find=self.find_cycle(value,cursor.child_left,level+1,"l - ",bool_find)    #l - левый потомок
+            bool_find=self.find_cycle(value,cursor.child_rigth,level+1,"r - ",bool_find)   #r - правый потомок потомок
+            #демонстрирует дерево, а также найденные строки
+        return bool_find    #
+            
+    def left_cursor(self):
+        if self.cursor.child_left:
+            self.cursor=self.cursor.child_left
+        else:
+            print("Нет левого потомка") #перемещает курсив к левому потомку
+    def rigth_cursor(self):
+        if self.cursor.child_rigth:
+            self.cursor=self.cursor.child_rigth
+        else:
+            print("Нет правого потомка потомка")    #перемещает курсив к правому потомку
+    def parent_cursor(self):
+        if self.cursor.parents:
+            self.cursor=self.cursor.parents
+        else:
+            print("курсор находится в родительском звене")  #перемещает курсив к родителю
+
+    def del_Node(self):
+        if self.cursor.child_left or self.cursor.child_rigth:       #проверяет, не удалит ли функция больше необходимого
+            print("Нельзя удалить ветвь, если к ней привязаны другие звенья")
+        else:
+            if self.leght>1:                                        #если нет и в дереве есть есть еще звенья
+                if self.cursor.parents.child_left==self.cursor:     #то произойдет удаление звена
+                        self.cursor.parents.child_left=None
+                else:   self.cursor.parents.child_rigth=None
+                self.cursor=self.cursor.parents
+                self.leght-=1
+                print("Удаление прошло успешно")
+            elif self.leght==1:                                     #если звено осталось последним, 
+                zeroing()                                           #то произойдет полная очистка дерева
+                
+            else:
+                print("нечего удалить") #удаляет лишь 1 звено
+    def absolute_del_Node(self):
+        if self.cursor==self.head:  #если курсив указан в корень
+            self.zeroing()          #то дерево будет удалено
+
+        elif self.leght>1:          #иначе будет удалена указанная ветвь
+            len=self.cursor.grandson
+            if self.cursor.child_left:
+                len+=1
+            if self.cursor.child_rigth:
+                len+=1
+            
+            if self.cursor.parents.child_left==self.cursor:
+                    self.cursor.parents.child_left=None
+            else:   self.cursor.parents.child_rigth=None
+            self.cursor=self.cursor.parents
+            self.cursor.grandson-=len
+            self.leght-=len+1
+            print("Успешно было удалено: "+str(len+1)+" звеньев")
+
+        else:                       #если же дерево пусто, то функция сообщит об этом
+            print("нечего удалить")     #удаляет целую ветвь звеньев 
+
+    def zeroing(self):
+        if self.leght>0:    
+            print("Успешно было удалено: "+str(self.leght)+" звеньев")
+            print("Дерево успешно срезано")
+        else:   
+            print("Дерево пусто")
+        self.leght=0              #количество звеньев в списке
+        self.head = None         #голова
+        self.cursor = None      #полное удаление дерева
+
+
+
+
+if __name__ == '__main__':
+    tree = Tree_list()
+    for i in range(10):
+        tree.avto_add(i)
+
+    print("for i in range(10):")
+    print("     tree.avto_add(i)")
+
+
+    tree.tree_presentation(tree.head)
+    print("Количество звеньев: "+str(tree.leght))
+
+
+    tree.left_cursor()
+    print("tree.left_cursor()")
+    tree.tree_presentation(tree.head)
+    tree.left_cursor()
+    print("tree.left_cursor()")
+    tree.tree_presentation(tree.head)
+
+    print("tree.del_Node()")
+    tree.del_Node()
+    tree.tree_presentation(tree.head)
+    print("Количество звеньев: "+str(tree.leght))
+
+    print("tree.absolute_del_Node()")
+    tree.absolute_del_Node()
+    tree.tree_presentation(tree.head)
+    print("Количество звеньев: "+str(tree.leght))
+
+    print("tree.add_cursor(Earth)")
+    tree.add_cursor("Earth")
+    tree.tree_presentation(tree.head)
+    print("Количество звеньев: "+str(tree.leght))
+
+    print("tree.find(Earth2)")
+    tree.find("Earth2")
+    print("tree.find(Earth)")
+    tree.find("Earth")
+
+'''
+for i in range(10):
+     tree.avto_add(i)
+0 <- cursor
+-l - 1
+--l - 6
+--r - 7
+---l - 8
+-r - 2
+--l - 3
+--r - 4
+---l - 5
+---r - 9
+Количество звеньев: 10
+tree.left_cursor()
+0
+-l - 1 <- cursor
+--l - 6
+--r - 7
+---l - 8
+-r - 2
+--l - 3
+--r - 4
+---l - 5
+---r - 9
+tree.left_cursor()
+0
+-l - 1
+--l - 6 <- cursor
+--r - 7
+---l - 8
+-r - 2
+--l - 3
+--r - 4
+---l - 5
+---r - 9
+tree.del_Node()
+Удаление прошло успешно
+0
+-l - 1 <- cursor
+--r - 7
+---l - 8
+-r - 2
+--l - 3
+--r - 4
+---l - 5
+---r - 9
+Количество звеньев: 9
+tree.absolute_del_Node()
+Успешно было удалено: 3 звеньев
+0 <- cursor
+-r - 2
+--l - 3
+--r - 4
+---l - 5
+---r - 9
+Количество звеньев: 6
+tree.add_cursor(Earth)
+0
+-l - Earth <- cursor
+-r - 2
+--l - 3
+--r - 4
+---l - 5
+---r - 9
+Количество звеньев: 7
+tree.find(Earth2)
+0
+-l - Earth
+-r - 2
+--l - 3
+--r - 4
+---l - 5
+---r - 9
+Запись не была найдена
+tree.find(Earth)
+0
+-l - Earth <- find
+-r - 2
+--l - 3
+--r - 4
+---l - 5
+---r - 9
+Запись найдена
+
+'''
