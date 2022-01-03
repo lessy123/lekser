@@ -1,0 +1,516 @@
+Name_table  #название хеш-таблицы
+-209        #Результат хеш-значение
+--live        #ключ
+--- 55 live     #значение памяти, на которую ссылается ключ
+--can
+--- 86 can
+-215
+--in
+--- 115 in
+--look
+--- 12 look
+-219
+--virtue
+--- 2 virtue
+--heavens
+--- 90 heavens
+--keep
+--- 91 keep
+-221
+--no
+--- 18 no
+-201
+--desire
+--- 4 desire
+--die
+--- 110 die
+-217
+--the
+--- 116 the
+--theyre
+--- 65 theyre
+-204
+--grave
+--- 7 grave
+--gone
+--- 82 gone
+-207
+--an
+--- 106 an
+--ashen
+--- 73 ashen
+-212
+--angels
+--- 85 angels
+--one
+--- 19 one
+--as
+--- 78 as
+--hell
+--- 114 hell
+-213
+--choir
+--- 10 choir
+--goddamn
+--- 105 goddamn
+--apart
+--- 59 apart
+--paradise
+--- 76 paradise
+-238
+--you
+--- 11 you
+-227
+--to
+--- 83 to
+--sleep
+--- 84 sleep
+-214
+--heaven
+--- 111 heaven
+--clouds
+--- 80 clouds
+-197
+--and
+--- 15 and
+-233
+--wonder
+--- 16 wonder
+-240
+--why
+--- 97 why
+-216
+--see
+--- 21 see
+--fear
+--- 94 fear
+--turned
+--- 69 turned
+-225
+--them
+--- 22 them
+--seen
+--- 88 seen
+--must
+--- 112 must
+-236
+--sky
+--- 117 sky
+-222
+--just
+--- 77 just
+-205
+--have
+--- 81 have
+--angel
+--- 107 angel
+--fading
+--- 66 fading
+-199
+--be
+--- 113 be
+-198
+--alone
+--- 92 alone
+--behind
+--- 62 behind
+-237
+--they
+--- 95 they
+-223
+--question
+--- 96 question
+-226
+--not
+--- 99 not
+--so
+--- 72 so
+-229
+--when
+--- 108 when
+-210
+--i
+--- 109 i
+-224
+--never
+--- 57 never
+-211
+--from
+--- 60 from
+-232
+--us
+--- 61 us
+-230
+--souls
+--- 67 souls
+-220
+--whove
+--- 68 whove
+--white
+--- 74 white
+-206
+--ice
+--- 71 ice
+-None
+--
+--- 118
+
+------------------------------
+
+Name_table
+-644
+--live
+--- 55 live
+-110
+--in
+--- 115 in
+--an
+--- 106 an
+-1654
+--virtue
+--- 2 virtue
+-111
+--no
+--- 18 no
+--to
+--- 83 to
+--so
+--- 72 so
+-1607
+--desire
+--- 4 desire
+-306
+--the
+--- 116 the
+-1066
+--grave
+--- 7 grave
+--ashen
+--- 73 ashen
+--white
+--- 74 white
+-1626
+--angels
+--- 85 angels
+-1097
+--choir
+--- 10 choir
+-345
+--you
+--- 11 you
+-654
+--look
+--- 12 look
+-1603
+--heaven
+--- 111 heaven
+-310
+--and
+--- 15 and
+-1605
+--wonder
+--- 16 wonder
+-346
+--why
+--- 97 why
+-312
+--one
+--- 19 one
+-317
+--can
+--- 86 can
+-303
+--see
+--- 21 see
+-633
+--them
+--- 22 them
+--seen
+--- 88 seen
+-349
+--sky
+--- 117 sky
+-695
+--just
+--- 77 just
+--must
+--- 112 must
+-115
+--as
+--- 78 as
+--us
+--- 61 us
+-1656
+--clouds
+--- 80 clouds
+-636
+--have
+--- 81 have
+--when
+--- 108 when
+-634
+--gone
+--- 82 gone
+-1061
+--sleep
+--- 84 sleep
+-101
+--be
+--- 113 be
+-2293
+--heavens
+--- 90 heavens
+-639
+--keep
+--- 91 keep
+-1064
+--alone
+--- 92 alone
+-637
+--fear
+--- 94 fear
+-669
+--they
+--- 95 they
+-3089
+--question
+--- 96 question
+-2204
+--goddamn
+--- 105 goddamn
+-343
+--not
+--- 99 not
+-1051
+--angel
+--- 107 angel
+-0
+--i
+--- 109 i
+-307
+--die
+--- 110 die
+-1096
+--never
+--- 57 never
+-1112
+--apart
+--- 59 apart
+-663
+--from
+--- 60 from
+-1564
+--behind
+--- 62 behind
+-1630
+--theyre
+--- 65 theyre
+-1567
+--fading
+--- 66 fading
+-1129
+--souls
+--- 67 souls
+-1084
+--whove
+--- 68 whove
+-1579
+--turned
+--- 69 turned
+-301
+--ice
+--- 71 ice
+-2938
+--paradise
+--- 76 paradise
+-641
+--hell
+--- 114 hell
+-None
+--
+--- 118
+
+------------------------------
+
+Name_table
+-d0dbe915091d400bd8ee7f27f0791303
+--live
+--- 55 live
+-13b5bfe96f3e2fe411c9f66f4a582adf
+--in
+--- 115 in
+-abb312ffe8441d0732785228769d6dba
+--virtue
+--- 2 virtue
+-7fa3b767c460b54a2be4d49030b349c7
+--no
+--- 18 no
+-99e0d947e01bbc0a507a1127dc2135b1
+--desire
+--- 4 desire
+-8fc42c6ddf9966db3b09e84365034357
+--the
+--- 116 the
+-386a023bd38fab85cb531824bfe9a879
+--grave
+--- 7 grave
+-18b049cc8d8535787929df716f9f4e68
+--an
+--- 106 an
+-82a7c395a86348dd4bfd11bb05b71cbf
+--angels
+--- 85 angels
+-b84d02569b3283c267820c62f9ab6e72
+--choir
+--- 10 choir
+-639bae9ac6b3e1a84cebb7b403297b79
+--you
+--- 11 you
+-8c4291f6956da81515a5c0caec2976d0
+--look
+--- 12 look
+-01b6e20344b68835c5ed1ddedf20d531
+--to
+--- 83 to
+-eb31870669f13fd8444c2bc918375f09
+--heaven
+--- 111 heaven
+-be5d5d37542d75f93a87094459f76678
+--and
+--- 15 and
+-10cf1fdf6ad958eeffa9853f6885cec9
+--wonder
+--- 16 wonder
+-531e70a6745d07a8befbd79e5cc7e4c1
+--why
+--- 97 why
+-f97c5d29941bfb1b2fdab0874906ab82
+--one
+--- 19 one
+-2c61ebff5a7f675451467527df66788d
+--can
+--- 86 can
+-1e8e42b87a65326b98ced7d3af717a72
+--see
+--- 21 see
+-e886b5e8a9e6a8b1a306ac1efb18ec84
+--them
+--- 22 them
+-900bc885d7553375aec470198a9514f3
+--sky
+--- 117 sky
+-8134b84030cca5285ed0e0b31ba06f10
+--just
+--- 77 just
+-f970e2767d0cfe75876ea857f92e319b
+--as
+--- 78 as
+-073caed738eb89c95a716053cea97b7c
+--clouds
+--- 80 clouds
+-b42dad5453b2128a32f6612b13ea5d9f
+--have
+--- 81 have
+-50c1f58be7f5e47e0f53d64c094783c2
+--gone
+--- 82 gone
+-c9fab33e9458412c527c3fe8a13ee37d
+--sleep
+--- 84 sleep
+-910955a907e739b81ec8855763108a29
+--be
+--- 113 be
+-d5b4a9a5a6b50466e8837c3cd98c3442
+--seen
+--- 88 seen
+-78e72fc837d102b2762379476ce20eb7
+--heavens
+--- 90 heavens
+-18ccf61d533b600bbf5a963359223fe4
+--keep
+--- 91 keep
+-c42bbd90740264d115048a82c9a10214
+--alone
+--- 92 alone
+-eb88d7636980738cd0522ea69e212905
+--fear
+--- 94 fear
+-2bb3d86d95234affa7c5bd68c4bab606
+--they
+--- 95 they
+-5494af1f14a8c19939968c3e9e2d4f79
+--question
+--- 96 question
+-fd3c5173c6b328e2e98f7e40d6ba6246
+--goddamn
+--- 105 goddamn
+-d529e941509eb9e9b9cfaeae1fe7ca23
+--not
+--- 99 not
+-f4f068e71e0d87bf0ad51e6214ab84e9
+--angel
+--- 107 angel
+-df491a4de50739fa9cffdbd4e3f4b4bb
+--when
+--- 108 when
+-865c0c0b4ab0e063e5caa3387c1a8741
+--i
+--- 109 i
+-81b63b9d54b303edeaf9765a6915ee13
+--die
+--- 110 die
+-c7561db7a418dd39b2201dfe110ab4a4
+--never
+--- 57 never
+-bce1c9ffaf9d636a55ad1e0b5d704053
+--apart
+--- 59 apart
+-d98a07f84921b24ee30f86fd8cd85c3c
+--from
+--- 60 from
+-0b3b97fa66886c5688ee4ae80ec0c3c2
+--us
+--- 61 us
+-9da3be8f92c0bbfd7a7d6d6ec0b3fad3
+--behind
+--- 62 behind
+-f9c2115ec3c5ef45b945fe51fdb1c459
+--theyre
+--- 65 theyre
+-7001728411006ee87fe76f849ff7b0bf
+--fading
+--- 66 fading
+-6e312578632aa2656088edd44a39ae9c
+--souls
+--- 67 souls
+-2748aee1d2a1927bf7c6db8dfa76144a
+--whove
+--- 68 whove
+-e5412b8b872f9bbe68d8e825dd9f1d5c
+--turned
+--- 69 turned
+-7bdff76536f12a7c5ffde207e72cfe3a
+--ice
+--- 71 ice
+-b807023f87e63b8ada92f79f546ff9cc
+--so
+--- 72 so
+-eea1fefe34baa4e9d2cd6c3bb84dc326
+--ashen
+--- 73 ashen
+-d508fe45cecaf653904a0e774084bb5c
+--white
+--- 74 white
+-96ac9a11d94d8f982ba476aa4b5ef503
+--paradise
+--- 76 paradise
+-d0e6ef34e76c41b0fac84f608289d013
+--must
+--- 112 must
+-4229d691b07b13341da53f17ab9f2416
+--hell
+--- 114 hell
+-None
+--
+--- 118
+Press any key to continue . . .
